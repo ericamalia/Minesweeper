@@ -32,7 +32,7 @@ public void setBombs()
         
         if(!bombs.contains(buttons[ranR][ranC]))
         {
-            System.out.println(ranR+", " + ranC);
+            //System.out.println(ranR+", " + ranC);
             bombs.add(buttons[ranR][ranC]);
         }
     }
@@ -92,8 +92,8 @@ public class MSButton
     {
         clicked = true;
         //your code here
-        System.out.println("clicked "+r+", "+c);
-        System.out.println(bombs.contains(this));  
+        /*System.out.println("clicked "+r+", "+c);
+        System.out.println(bombs.contains(this));*/  
     }
 
     public void draw () 
@@ -118,13 +118,18 @@ public class MSButton
     }
     public boolean isValid(int r, int c)
     {
-        //your code here
+       if(r != ranR && c != ranC){
+        return true;
+       }
+       else{
         return false;
+       }
+       
     }
     public int countBombs(int row, int col)
     {
         int numBombs = 0;
-        //your code here
+
         return numBombs;
     }
 }
