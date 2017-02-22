@@ -118,7 +118,7 @@ public class MSButton
     }
     public boolean isValid(int r, int c)
     {
-       if(r != ranR && c != ranC){
+       if( 0 <=r && r < NUM_ROWS && 0<= c && c < NUM_COLS){
         return true;
        }
        else{
@@ -129,7 +129,38 @@ public class MSButton
     public int countBombs(int row, int col)
     {
         int numBombs = 0;
-
+        if (isValid(row-1,col) == true && row-1 == ranR && col == ranC)
+        {
+            numBombs++;
+        }
+        if (isValid(row+1,col) == true && row+1 == ranR && col == ranC)
+        {
+            numBombs++;
+        }
+         if (isValid(row,col-1) == true && row == ranR && col-1 == ranC)
+        {
+            numBombs++;
+        }
+         if (isValid(row,col+1) == true && row == ranR && col+1 == ranC)
+        {
+            numBombs++;
+        }
+         if (isValid(row-1,col+1) == true && row-1 == ranR && col+1 == ranC)
+        {
+            numBombs++;
+        }
+         if (isValid(row-1,col-1) == true && row-1 == ranR && col-1 == ranC)
+        {
+            numBombs++;
+        }
+         if (isValid(row+1,col+1) == true && row+1 == ranR && col+1 == ranC)
+        {
+            numBombs++;
+        }
+         if (isValid(row+1,col-1) == true && row+1 == ranR && col-1 == ranC)
+        {
+            numBombs++;
+        }
         return numBombs;
     }
 }
