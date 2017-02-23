@@ -3,7 +3,7 @@ public final static int NUM_ROWS = 20;
 public final static int NUM_COLS = 20; // all caps syntax
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
-public int numBombs = 50;
+public int numBombs = 20;
 void setup ()
 {
     size(400, 400);
@@ -92,6 +92,7 @@ public class MSButton
     {
         clicked = true;
         //your code here
+        if (keyPressed == true )
         /*System.out.println("clicked "+r+", "+c);
         System.out.println(bombs.contains(this));*/  
     }
@@ -129,35 +130,35 @@ public class MSButton
     public int countBombs(int row, int col)
     {
         int numBombs = 0;
-        if (isValid(row-1,col) == true && row-1 == ranR && col == ranC)
+        if (isValid(row-1,col) == true && bombs.contains(buttons[row-1][col]))
         {
             numBombs++;
         }
-        if (isValid(row+1,col) == true && row+1 == ranR && col == ranC)
+        if (isValid(row+1,col) == true && bombs.contains(buttons[row+1][col]))
         {
             numBombs++;
         }
-         if (isValid(row,col-1) == true && row == ranR && col-1 == ranC)
+         if (isValid(row,col-1) == true && bombs.contains(buttons[row][col-1]))
         {
             numBombs++;
         }
-         if (isValid(row,col+1) == true && row == ranR && col+1 == ranC)
+         if (isValid(row,col+1) == true && bombs.contains(buttons[row][col+1]))
         {
             numBombs++;
         }
-         if (isValid(row-1,col+1) == true && row-1 == ranR && col+1 == ranC)
+         if (isValid(row-1,col+1) == true && bombs.contains(buttons[row-1][col+1]))
         {
             numBombs++;
         }
-         if (isValid(row-1,col-1) == true && row-1 == ranR && col-1 == ranC)
+         if (isValid(row-1,col-1) == true && bombs.contains(buttons[row-1][col-1]))
         {
             numBombs++;
         }
-         if (isValid(row+1,col+1) == true && row+1 == ranR && col+1 == ranC)
+         if (isValid(row+1,col+1) == true && bombs.contains(buttons[row+1][col]))
         {
             numBombs++;
         }
-         if (isValid(row+1,col-1) == true && row+1 == ranR && col-1 == ranC)
+         if (isValid(row+1,col-1) == true && bombs.contains(buttons[row+1][col-1]))
         {
             numBombs++;
         }
