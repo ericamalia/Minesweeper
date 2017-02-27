@@ -92,7 +92,26 @@ public class MSButton
     {
         clicked = true;
         //your code here
-        if (keyPressed == true )
+        if (keyPressed == true)
+        {
+          if (marked == false)
+          {
+            clicked == false;
+          }
+          clicked = true;
+        }
+        else if ( bomb.contains(this))
+        {
+            text( " YOU LOOSE ", 200, 200);
+        }
+        else if (numBombs < 0)
+        {
+            label = numBombs;
+        }
+        else
+        {
+            
+        }
         /*System.out.println("clicked "+r+", "+c);
         System.out.println(bombs.contains(this));*/  
     }
