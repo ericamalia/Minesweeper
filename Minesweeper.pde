@@ -3,7 +3,7 @@ public final static int NUM_ROWS = 20;
 public final static int NUM_COLS = 20; // all caps syntax
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
-public int numBombs = 20;
+public int numBombs = 65;
 void setup ()
 {
     size(400, 400);
@@ -48,6 +48,10 @@ public void draw ()
 public boolean isWon()
 {
     //your code here
+    /*if ()
+    {
+        return true;
+    }*/
     return false;
 }
 public void displayLosingMessage()
@@ -98,13 +102,16 @@ public class MSButton
           {
             clicked = false;
           }
-          clicked = true;
+          else{
+            clicked = true;
+          }
+          
         }
         else if ( bombs.contains(this))
         {
            displayLosingMessage();
         }
-        else if (countBombs(r,c) < 0)
+        else if (countBombs(r,c) > 0)
         {
             setLabel(""+ countBombs(r,c));
         }
@@ -188,7 +195,7 @@ public class MSButton
         {
             numBombs++;
         }
-         if (isValid(row+1,col+1) == true && bombs.contains(buttons[row+1][col]))
+         if (isValid(row+1,col+1) == true && bombs.contains(buttons[row+1][col+1]))
         {
             numBombs++;
         }
