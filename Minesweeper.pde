@@ -48,7 +48,7 @@ public void draw ()
 public boolean isWon()
 {
     //your code here
-    /*if ()
+    /*if ()  //all boms are unmarked/unclicked
     {
         return true;
     }*/
@@ -57,10 +57,15 @@ public boolean isWon()
 public void displayLosingMessage()
 {
     //your code here
+    if( bombs.isClicked == true && bombs.contains(this) ) 
+          setLabel("YOU LOOSE, YOU BLEW IT...");
+    //bombs.isMarked() = true;
+
 }
 public void displayWinningMessage()
 {
     //your code here
+    //setLabel("YOU WIN, MINE HAS BEEN SWEPT");
 }
 
 public class MSButton
@@ -96,17 +101,21 @@ public class MSButton
     {
         clicked = true;
         //your code here
-        if (keyPressed == true)
-        {
+        if (keyPressed == true|| mousePressed && (mouseButton == RIGHT))
+         {
+        
           if (marked == false)
           {
-            clicked = false;
+            marked = true;
           }
-          else{
-            clicked = true;
+          else if(marked == true)
+          {
+            clicked = false;
+            marked = false;
           }
           
         }
+
         else if ( bombs.contains(this))
         {
            displayLosingMessage();
