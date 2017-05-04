@@ -3,7 +3,7 @@ public final static int NUM_ROWS = 20;
 public final static int NUM_COLS = 20; // all caps syntax
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
-public int numBombs = 65;
+public int numBombs = 1;
 void setup ()
 {
     size(400, 400);
@@ -48,23 +48,42 @@ public void draw ()
 public boolean isWon()
 {
     //your code here
-    /*if ()  //all boms are unmarked/unclicked
-    {
-        return true;
-    }*/
-    return false;
+    for (int r =0; r< NUM_ROWS; r++){
+        for(int c=0; c< NUM_COLS; c++){
+            if(buttons[r][c].isClicked() == false){
+                return false;
+            }
+        }
+    }
+    return true;
+   
 }
 public void displayLosingMessage()
 {
     //your code here
-    if( bombs.isClicked == true && bombs.contains(this) ) 
-          setLabel("YOU LOOSE, YOU BLEW IT...");
+    for (int r =0; r< NUM_ROWS; r++){
+        for(int c=0; c< NUM_COLS; c++){
+             if( buttons[r][c].isClicked() == true && bombs.contains(this) ) 
+                    buttons[NUM_ROWS/2][(NUM_COLS/2)-6].setLabel("YOU");
+                    buttons[NUM_ROWS/2][(NUM_COLS/2)-4].setLabel("LOOSE");
+                    buttons[NUM_ROWS/2][(NUM_COLS/2)-2].setLabel("YOU");
+                    buttons[NUM_ROWS/2][(NUM_COLS/2)].setLabel("BLEW");
+                    buttons[NUM_ROWS/2][(NUM_COLS/2)+2].setLabel("IT");
+            }
+        }
+    
+    
     //bombs.isMarked() = true;
 
 }
 public void displayWinningMessage()
 {
     //your code here
+     
+             if( isWon() == true ) 
+                buttons[NUM_ROWS/2][(NUM_COLS/2)-2].setLabel("YOU");
+                buttons[NUM_ROWS/2][(NUM_COLS/2)].setLabel("WIN!");
+    
     //setLabel("YOU WIN, MINE HAS BEEN SWEPT");
 }
 
@@ -107,6 +126,7 @@ public class MSButton
           if (marked == false)
           {
             marked = true;
+            clicked = true;
           }
           else if(marked == true)
           {
