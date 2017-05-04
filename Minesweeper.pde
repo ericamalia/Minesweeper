@@ -3,7 +3,7 @@ public final static int NUM_ROWS = 20;
 public final static int NUM_COLS = 20; // all caps syntax
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
-public int numBombs = 1;
+public int numBombs = 65;
 void setup ()
 {
     size(400, 400);
